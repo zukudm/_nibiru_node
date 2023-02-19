@@ -40,7 +40,7 @@
         msg: "{{ asset_url }} {{ version }}"
 
     - debug: 
-        msg: "{{ 'Hello World'[:-3] }}"
+        msg: "{{ 'Hello World'[2:-3] }}"
 
 
    
