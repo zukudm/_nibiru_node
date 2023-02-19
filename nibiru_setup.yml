@@ -34,9 +34,9 @@
         asset_url: "{{ nibiru_info.json.assets[5].browser_download_url }}"
     
     - name: Get Dockerfile from URL
-        get_url:
-          url: "{{ asset_url }}"
-          dest: "./download_file"
+      get_url:
+        url: "{{ asset_url }}"
+        dest: "./download_file"
 
 
     
