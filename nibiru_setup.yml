@@ -31,4 +31,4 @@
 
     - name: Print variables
       debug:
-        msg: "{{ asset_url.name }}"
+        msg: "{{ asset_url.json.name }}"
