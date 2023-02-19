@@ -35,7 +35,7 @@
 
     - name: Get names of assets that match string "amd64"
       set_fact:
-        asset_url: "{{ nibiru_info.assets | json_query('[*].name | [?contains(@, `linux_amd64`)]') }}"
+        asset_url: "{{ nibiru_info.assets | json_query('[*].name | [?contains(@, `amd64`)]') }}"
 
     - name: Print variables
       debug:
