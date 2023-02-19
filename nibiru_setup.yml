@@ -36,9 +36,8 @@
 
     
     - name: Print variables
-      debug:
-        var: asset_url | replace('^\\[\'', '')
-        verbosity: 2
+      set_fact:
+        my_var_cleaned: "{{ asset_url | regex_replace('^[[\\\"\\\'](.*)[]\\\"\\\']$', '\\1') }}"
       
 
     - name: Print variables
