@@ -32,8 +32,10 @@
       set_fact:
         asset_url: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*linux_amd64.*')|map(attribute='browser_download_url') | list }}"
     
-
-      
+    - name: Trim first and last symbol from string variable
+      set_fact:
+        asset_url: "{{ asset_url[1:-1] }}"
+          
 
     - name: Print variables
       debug:
