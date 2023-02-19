@@ -35,4 +35,4 @@
 
     - name: Print variables
       debug:
-        msg: "{{ asset_url }}  {{ verion }}"
+        msg: "{{ asset_url }}  {{ version }}"
