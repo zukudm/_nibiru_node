@@ -34,7 +34,7 @@
     
     - name: Trim first and last symbol from string variable
       set_fact:
-        asset_url: "{{ asset_url | replace('[]', '') }}"
+        asset_url: "{{ asset_url |replace('^\\[\'', '') }}"
           
 
     - name: Print variables
