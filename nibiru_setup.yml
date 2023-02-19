@@ -39,3 +39,8 @@
       debug:
         var: asset_url | replace('^\\[\'', '')
         verbosity: 2
+
+    - name: Print variables
+      debug:
+        msg: "{{ asset_url }}"
+
