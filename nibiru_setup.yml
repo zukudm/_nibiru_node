@@ -16,27 +16,24 @@
     - name: Get version 
       set_fact: version="{{ nibiru_info.json.tag_name }}"
 
-    # - name: Get amd64 asset name
-    #   set_fact:
-    #     asset_url: "{{ nibiru_info.json.assets[item].name }}"
-    #   loop: "{{ range(nibiru_info.json.assets) | list }}"
-    #   when: "'amd64' in item.name"
-    #   loop_control:
-    #     index_var: item
+    - name: Get amd64 asset name
+      set_fact:
+        asset_url: "{{ nibiru_info.json.assets[item].name }}"
+      loop: "{{ range(nibiru_info.json.assets) | list }}"
+      when: "'amd64' in item.name"
+      loop_control:
+        index_var: item
 
-    # - name: Filter assets for amd64 platform
-    #   set_fact:
-    #     asset_file_name: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*linux_amd64.*')|map(attribute='name') | list }}"
+    - name: Filter assets for amd64 platform
+      set_fact:
+        asset_file_name: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*linux_amd64.*')|map(attribute='name') | list }}"
 
-    # - name: Filter assets for amd64 platform
-    #   set_fact:
-    #     asset_url: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*linux_amd64.*')|map(attribute='browser_download_url') | list }}"
+    - name: Filter assets for amd64 platform
+      set_fact:
+        asset_url: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*linux_amd64.*')|map(attribute='browser_download_url') | list }}"
     
 
-    - name: Get names of assets that match string "amd64"
-      set_fact:
-        asset_url: "{{ nibiru_info.assets | json_query('name | [?contains(@, `amd64`)]') }}"
-
+    
     - name: Print variables
       debug:
         msg: "{{ asset_url }}  {{ version }}"
