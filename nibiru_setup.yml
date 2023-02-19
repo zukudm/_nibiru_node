@@ -37,7 +37,7 @@
 
     - name: Print variables
       debug:
-        msg: "{{ asset_url[2:-2] }} {{ version }}"
+        msg: "{{ asset_url[1:-1] }} {{ version }}"
 
     - debug: 
         msg: "{{ 'Hello World'[2:-3] }}"
