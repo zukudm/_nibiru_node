@@ -24,14 +24,19 @@
     #   loop_control:
     #     index_var: item
 
-    - name: Filter assets for amd64 platform
-      set_fact:
-        asset_file_name: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*linux_amd64.*')|map(attribute='name') | list }}"
+    # - name: Filter assets for amd64 platform
+    #   set_fact:
+    #     asset_file_name: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*linux_amd64.*')|map(attribute='name') | list }}"
 
-    - name: Filter assets for amd64 platform
+    # - name: Filter assets for amd64 platform
+    #   set_fact:
+    #     asset_url: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*linux_amd64.*')|map(attribute='browser_download_url') | list }}"
+    
+
+    - name: Get asset name for amd64 platform
       set_fact:
-        asset_url: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*linux_amd64.*')|map(attribute='browser_download_url') | list }}"
-        
+        asset_url: "{{ nibiru_info.json.assets[?contains(name, 'linux_amd64')].name | first }}"
+
 
     - name: Print variables
       debug:
