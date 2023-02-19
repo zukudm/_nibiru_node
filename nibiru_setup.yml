@@ -4,8 +4,6 @@
   hosts: "{{ host }}"
   gather_facts: no
   become: yes    
-  vars:
-    my_string: "[abcde]"
 
   tasks:
     
@@ -41,7 +39,4 @@
       debug:
         msg: "{{ asset_url }} {{ version }}"
 
-    - name: Trim first and last two characters from string
-      set_fact:
-        my_string: "{{ my_string[2:-2] }}"
-
+   
