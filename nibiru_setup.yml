@@ -33,6 +33,7 @@
         asset_url: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*linux_amd64.*')|map(attribute='browser_download_url') | list }}"
         
 
-    - name: Print variables
-      debug:
-        msg: "{{ asset_url }} \n {{ asset_file_name }}"
+    - name: Get Dockerfile from URL
+      get_url:
+        url: "{{ asset_url }}"
+        dest: "./filexxx"
