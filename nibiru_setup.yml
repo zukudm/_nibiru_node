@@ -16,13 +16,13 @@
     - name: Get version 
       set_fact: version="{{ nibiru_info.json.tag_name }}"
 
-    - name: Get amd64 asset name
-      set_fact:
-        asset_url: "{{ nibiru_info.json.assets[item].name }}"
-      loop: "{{ range(nibiru_info.json.assets) | list }}"
-      when: "'amd64' in item.name"
-      loop_control:
-        index_var: item
+    # - name: Get amd64 asset name
+    #   set_fact:
+    #     asset_url: "{{ nibiru_info.json.assets[item].name }}"
+    #   loop: "{{ range(nibiru_info.json.assets) | list }}"
+    #   when: "'amd64' in item.name"
+    #   loop_control:
+    #     index_var: item
 
     - name: Filter assets for amd64 platform
       set_fact:
