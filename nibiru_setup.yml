@@ -26,7 +26,7 @@
 
     - name: Filter assets for amd64 platform
       set_fact:
-        amd64_assets: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*amd64.*') | list }}"
+        asset_url: "{{ nibiru_info.json.assets | selectattr('name', 'match', '.*amd64.*') | list }}"
         
 
     - name: Print variables
