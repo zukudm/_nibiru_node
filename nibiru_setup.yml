@@ -37,11 +37,7 @@
     #   set_fact:
     #     asset_url: "{{ nibiru_info.json.assets[5].browser_download_url }}"
     
-    - name: Get Dockerfile from URL
-      get_url:
-        url: "{{ asset_url[0] }}"
-        dest: "./download_file"
-
+    
     - name: Get Dockerfile from URL
       get_url:
         url: "{{ nibiru_dockerfile_url }}"
