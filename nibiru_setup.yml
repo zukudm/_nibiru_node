@@ -9,7 +9,7 @@
     
     - name: Get latest info
       uri:
-        url: "{{ nibiru_githubapi_url }} {{ node_version }}"
+        url: "{{ nibiru_githubapi_url }}{{ node_version }}"
         return_content: true
       register: nibiru_info
 
