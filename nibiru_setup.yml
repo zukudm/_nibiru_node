@@ -29,13 +29,13 @@
       debug:
         msg: "{{ asset_url[0] }} {{ asset_file_name[0]}}"
 
-    - name: Filter assets for amd64 platform
-      set_fact:
-        asset_file_name: "{{ nibiru_info.json.assets[5].name }}"
+    # - name: Filter assets for amd64 platform
+    #   set_fact:
+    #     asset_file_name: "{{ nibiru_info.json.assets[5].name }}"
 
-    - name: Filter assets for amd64 platform
-      set_fact:
-        asset_url: "{{ nibiru_info.json.assets[5].browser_download_url }}"
+    # - name: Filter assets for amd64 platform
+    #   set_fact:
+    #     asset_url: "{{ nibiru_info.json.assets[5].browser_download_url }}"
     
     - name: Get Dockerfile from URL
       get_url:
