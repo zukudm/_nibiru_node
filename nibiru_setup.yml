@@ -56,7 +56,9 @@
           args:
             ARTIFACT_LINK: "{{ asset_url[0] }}"
             ARTIFACT_BIN: "{{ asset_file_name[0] }}"
-            NIBIRU_WALLET: "Kria"
+            NIBIRU_MONIKER: "{{ NIBIRU_MONIKER }}"
+            NIBIRU_WALLET: "{{ NIBIRU_WALLET }}"
+            NIBIRU_CHAIN: "{{ NIBIRU_CHAIN }}"
         source: build
 
 

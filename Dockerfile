@@ -24,9 +24,9 @@ RUN if [ -f nibirud ]; then \
         mv nibirud nibid ; \
     fi
 
-COPY test.sh ./
+COPY bootstrap.sh ./
 
-RUN mv nibid /usr/local/bin/nibid  && chmod +x test.sh && ./test.sh
+RUN mv nibid /usr/local/bin/nibid  && chmod +x bootstrap.sh && ./bootstrap.sh
 
 
 
