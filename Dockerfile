@@ -12,9 +12,9 @@ RUN apk add --update-cache \
 ARG ARTIFACT_BIN
 ARG ARTIFACT_LINK
 ARG INSTALL_DIR="/root"
-ARG NIBIRU_MONIKER="your_name"
-ARG NIBIRU_CHAIN="nibiru-testnet-2"
-ARG NIBIRU_WALLET="your_name"
+ENV NIBIRU_MONIKER="your_name"
+ENV NIBIRU_CHAIN="nibiru-testnet-2"
+ENV NIBIRU_WALLET="your_name"
 
 WORKDIR /root
 
@@ -28,7 +28,7 @@ COPY bootstrap.sh ./
 COPY test.sh ./
 
 
-# RUN mv nibid /usr/local/bin/nibid  && chmod +x bootstrap.sh && ./bootstrap.sh
+RUN mv nibid /usr/local/bin/nibid  && chmod +x bootstrap.sh && ./bootstrap.sh
 
 
 
