@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "My environment variable !!!!!!!!!!!!!! is: $NIBIRU_CHAIN" > info.txt
+echo "My environment variable !!!!!!!!!!!!!! is: $NIBIRU_WALLET" > info.txt
 
