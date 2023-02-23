@@ -16,6 +16,11 @@
     - name: Get version 
       set_fact: version="{{ nibiru_info.json.tag_name }}"
 
+    - name: print It
+      debug:  
+        msg: "{{ version }}"
+
+
 
     - name: Filter assets for amd64 platform
       set_fact:
