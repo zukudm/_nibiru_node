@@ -26,7 +26,7 @@ RUN if [ -f nibirud ]; then \
 
 COPY bootstrap.sh ./
 
-#RUN mv nibid /usr/local/bin/nibid  && chmod +x bootstrap.sh && ./bootstrap.sh
+RUN mv nibid /usr/local/bin/nibid  && chmod +x bootstrap.sh && ./bootstrap.sh
 
 
 
