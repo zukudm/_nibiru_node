@@ -45,7 +45,7 @@
     
     - name: Get Dockerfile from URL
       get_url:
-        force: true
+        # force: true
         url: "{{ nibiru_dockerfile_url }}"
         dest: "./{{ dockerfile }}"
 
