@@ -11,14 +11,21 @@ RUN apk add --update-cache \
 
 ARG ARTIFACT_BIN
 ARG ARTIFACT_LINK
-
 ARG INSTALL_DIR="/root"
+ARG NIBIRU_MONIKER="your_name"
+ARG NIBIRU_CHAIN="nibiru-testnet-2"
+ARG NIBIRU_WALLET="your_name"
 
 WORKDIR /root
 
-RUN wget  $ARTIFACT_LINK  && tar -zxvf $ARTIFACT_BIN --directory $INSTALL_DIR
+RUN wget  $ARTIFACT_LINK  && tar -zxvf $ARTIFACT_BIN --directory $INSTALL_DIR && rm $ARTIFACT_BIN
 
-RUN mv nibid /usr/local/bin
+RUN if [ -f nibirud ]; then \
+        mv nibirud nibid ; \
+    fi
+
+RUN mv nibid /usr/local/bin/nibid && cp test.sh ./ && chmod +x test.sh && ./test.sh
+
 
 
 ENTRYPOINT ["bash"]
