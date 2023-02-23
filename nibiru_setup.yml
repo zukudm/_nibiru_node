@@ -59,6 +59,7 @@
             NIBIRU_MONIKER: "{{ NIBIRU_MONIKER }}"
             NIBIRU_WALLET: "{{ NIBIRU_WALLET }}"
             NIBIRU_CHAIN: "{{ NIBIRU_CHAIN }}"
+            NIBID_COMMAND: "/usr/local/bin/nibid"
         source: build
 
 
