@@ -92,6 +92,6 @@
         # cpu_shares: "{{ cpu_shares }}"
         # memory: "{{ memory }}"
         # memory_reservation: "{{ memory_reservation }}"   
-        # command: ["nibid", "start"]
+        command: ["nibid", "start"]
   
   
