@@ -16,10 +16,6 @@ ENV NIBIRU_MONIKER="your_name"
 ENV NIBIRU_CHAIN="nibiru-testnet-2"
 ENV NIBIRU_WALLET="your_name"
 
-ENV TINI_VERSION v0.19.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
-RUN chmod +x /tini
-
 
 WORKDIR /root
 
@@ -35,6 +31,10 @@ COPY bootstrap.sh ./
 
 RUN mv nibid /usr/local/bin/nibid  && chmod +x bootstrap.sh && ./bootstrap.sh
 
+# Add Tini
+ENV TINI_VERSION v0.19.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
 
 
 ENTRYPOINT ["/tini", "--"]
