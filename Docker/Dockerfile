@@ -1,12 +1,23 @@
-FROM alpine:latest
+# FROM alpine:latest
 
-RUN apk add --update-cache \
-    wget \
-    ca-certificates \
-    bash \
-    curl \
-    jq  \
-    && rm -rf /var/cache/apk/*
+# RUN apk add --update-cache \
+#     wget \
+#     ca-certificates \
+#     bash \
+#     curl \
+#     jq  \
+#     && rm -rf /var/cache/apk/*
+
+FROM ubuntu:20.04
+
+RUN  apt-get update \
+  && apt-get install -y wget \
+  && apt-get install curl \
+  && apt-get install jq \
+  && apt-get install ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
+
+
 
 
 ARG ARTIFACT_BIN
