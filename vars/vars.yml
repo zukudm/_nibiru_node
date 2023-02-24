@@ -9,8 +9,12 @@ container_name: nibiru_node
 volume_name: nibiru_volume
 network_name: nibiru_net
 working_user: ansible
-nibiru_dockerfile_url:  https://raw.githubusercontent.com/zukudm/_nibiru_node/master/Dockerfile
+nibiru_dockerfile_url:  https://raw.githubusercontent.com/zukudm/_nibiru_node/master/Docker/Dockerfile
+nibiru_bootstrap_url: https://raw.githubusercontent.com/zukudm/_nibiru_node/master/Docker/bootstrap.sh
 dockerfile: Dockerfile
+bootstrapscript: "bootstrap.sh"
+
+
 image_name: nibiru
 
 

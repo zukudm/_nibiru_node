@@ -16,6 +16,11 @@ ENV NIBIRU_MONIKER="your_name"
 ENV NIBIRU_CHAIN="nibiru-testnet-2"
 ENV NIBIRU_WALLET="your_name"
 
+ENV TINI_VERSION v0.19.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+
+
 WORKDIR /root
 
 RUN wget  $ARTIFACT_LINK  && tar -zxvf $ARTIFACT_BIN --directory $INSTALL_DIR && rm $ARTIFACT_BIN
@@ -32,4 +37,4 @@ RUN mv nibid /usr/local/bin/nibid  && chmod +x bootstrap.sh && ./bootstrap.sh
 
 
 
-ENTRYPOINT ["nibid start"]
+ENTRYPOINT ["/tini", "--"]
