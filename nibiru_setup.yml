@@ -45,9 +45,16 @@
     
     - name: Get Dockerfile from URL
       get_url:
-        # force: true
+        force: true
         url: "{{ nibiru_dockerfile_url }}"
         dest: "./{{ dockerfile }}"
+
+    - name: Get bootstrap script from URL
+      get_url:
+        force: true
+        url: "{{ nibiru_bootstrap_url }}"
+        dest: "./{{ bootstrapscript }}"
+        
 
     - name: Build image and with build args
       community.docker.docker_image:
@@ -65,9 +72,26 @@
             NIBIRU_MONIKER: "{{ NIBIRU_MONIKER }}"
             NIBIRU_WALLET: "{{ NIBIRU_WALLET }}"
             NIBIRU_CHAIN: "{{ NIBIRU_CHAIN }}"
-            NIBID_COMMAND: "/usr/local/bin/nibid"
+            # NIBID_COMMAND: "/usr/local/bin/nibid"
         source: build
 
-
-    
-   
+    - name: Start the container with Nibiru
+      community.docker.docker_container:
+        name: "{{ container_name }}"
+        image: "{{ image_name }}:{{ version }}"
+        labels: 
+          version: "{{ version }}"
+        pull: false
+        detach: yes
+        restart_policy: unless-stopped
+        # networks: 
+        #   - name: "{{ network_name }}"
+        # volumes: 
+        #   - "{{ volume_name }}:{{ container_mount_point }}"
+        cpus: "{{ cpus }}"
+        cpu_shares: "{{ cpu_shares }}"
+        memory: "{{ memory }}"
+        memory_reservation: "{{ memory_reservation }}"   
+        command: ["nibid", "start"]
+  
+  
