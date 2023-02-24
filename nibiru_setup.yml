@@ -88,10 +88,10 @@
         #   - name: "{{ network_name }}"
         # volumes: 
         #   - "{{ volume_name }}:{{ container_mount_point }}"
-        cpus: "{{ cpus }}"
-        cpu_shares: "{{ cpu_shares }}"
-        memory: "{{ memory }}"
-        memory_reservation: "{{ memory_reservation }}"   
-        command: ["nibid", "start"]
+        # cpus: "{{ cpus }}"
+        # cpu_shares: "{{ cpu_shares }}"
+        # memory: "{{ memory }}"
+        # memory_reservation: "{{ memory_reservation }}"   
+        # command: ["nibid", "start"]
   
   
