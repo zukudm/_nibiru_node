@@ -23,9 +23,13 @@ RUN  apt-get update \
 ARG ARTIFACT_BIN
 ARG ARTIFACT_LINK
 ARG INSTALL_DIR="/root"
-ENV NIBIRU_MONIKER="my_name"
-ENV NIBIRU_CHAIN="nibiru-testnet-2"
-ENV NIBIRU_WALLET="your_name"
+ARG NIBIRU_MONIKER_ARG
+ARG NIBIRU_WALLET_ARG
+ARG NIBIRU_CHAIN_ARG
+
+ENV NIBIRU_MONIKER=NIBIRU_MONIKER_ARG
+ENV NIBIRU_CHAIN=NIBIRU_CHAIN_ARG
+ENV NIBIRU_WALLET=NIBIRU_WALLET_ARG
 
 
 WORKDIR /root
@@ -39,7 +43,6 @@ RUN if [ -f nibirud ]; then \
 COPY bootstrap.sh ./
 #COPY test.sh ./
 
-RUN nibid init $NIBIRU_MONIKER --chain-id $NIBIRU_CHAIN
 RUN mv nibid /usr/local/bin/nibid  && chmod +x bootstrap.sh && ./bootstrap.sh
 
 # Add Tini

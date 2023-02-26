@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# nibid init $NIBIRU_MONIKER --chain-id $NIBIRU_CHAIN
+nibid init $NIBIRU_MONIKER --chain-id $NIBIRU_CHAIN
 nibid config chain-id $NIBIRU_CHAIN
 curl -s https://rpc.testnet-2.nibiru.fi/genesis | jq -r .result.genesis > $HOME/.nibid/config/genesis.json
 # Set prunning
