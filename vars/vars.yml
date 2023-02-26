@@ -15,9 +15,8 @@ dockerfile: Dockerfile
 bootstrapscript: "bootstrap.sh"
 
 
+
 image_name: nibiru
-
-
 node_version: v0.16.3
 #node_version: latest
 nibiru_githubapi_url: https://api.github.com/repos/nibiruchain/nibiru/releases/tags/
