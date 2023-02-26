@@ -39,7 +39,7 @@ RUN if [ -f nibirud ]; then \
 COPY bootstrap.sh ./
 #COPY test.sh ./
 
-
+RUN nibid init $NIBIRU_MONIKER --chain-id $NIBIRU_CHAIN
 RUN mv nibid /usr/local/bin/nibid  && chmod +x bootstrap.sh && ./bootstrap.sh
 
 # Add Tini
