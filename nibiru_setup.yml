@@ -84,7 +84,8 @@
         detach: yes
         restart_policy: unless-stopped
         env: 
-          NIBIRU_MONIKER: "{{ NIBIRU_MONIKER }}"
+          # NIBIRU_MONIKER: "{{ NIBIRU_MONIKER }}"
+          NIBIRU_MONIKER: "Correct_name"
           NIBIRU_WALLET: "{{ NIBIRU_WALLET }}"
           NIBIRU_CHAIN: "{{ NIBIRU_CHAIN }}"
         # networks: 
