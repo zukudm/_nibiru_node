@@ -2,10 +2,10 @@
 host: localhost
 
 NIBIRU_MONIKER: "Vasia"
-NIBIRU_WALLET: "nibiru-testnet-2"
-NIBIRU_CHAIN: "Vasia"
+NIBIRU_WALLET: "Vasia"
+NIBIRU_CHAIN: "nibiru-testnet-2"
 
-container_name: nibiru-node2
+container_name: nibiru-node
 volume_name: nibiru_volume
 network_name: nibiru_net
 working_user: ansible
