@@ -5,7 +5,7 @@ NIBIRU_MONIKER: "Vasia"
 NIBIRU_WALLET: "nibiru-testnet-2"
 NIBIRU_CHAIN: "Vasia"
 
-container_name: nibiru_node
+container_name: nibiru-node2
 volume_name: nibiru_volume
 network_name: nibiru_net
 working_user: ansible

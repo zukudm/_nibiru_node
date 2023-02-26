@@ -69,10 +69,9 @@
           args:
             ARTIFACT_LINK: "{{ asset_url[0] }}"
             ARTIFACT_BIN: "{{ asset_file_name[0] }}"
-            NIBIRU_MONIKER: "{{ NIBIRU_MONIKER }}"
-            NIBIRU_WALLET: "{{ NIBIRU_WALLET }}"
-            NIBIRU_CHAIN: "{{ NIBIRU_CHAIN }}"
-            # NIBID_COMMAND: "/usr/local/bin/nibid"
+            # NIBIRU_MONIKER: "{{ NIBIRU_MONIKER }}"
+            # NIBIRU_WALLET: "{{ NIBIRU_WALLET }}"
+            # NIBIRU_CHAIN: "{{ NIBIRU_CHAIN }}"
         source: build
 
     - name: Start the container with Nibiru
@@ -84,6 +83,10 @@
         pull: false
         detach: yes
         restart_policy: unless-stopped
+        env: 
+          NIBIRU_MONIKER: "{{ NIBIRU_MONIKER }}"
+          NIBIRU_WALLET: "{{ NIBIRU_WALLET }}"
+          NIBIRU_CHAIN: "{{ NIBIRU_CHAIN }}"
         # networks: 
         #   - name: "{{ network_name }}"
         # volumes: 
