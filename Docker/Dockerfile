@@ -23,9 +23,9 @@ RUN  apt-get update \
 ARG ARTIFACT_BIN
 ARG ARTIFACT_LINK
 ARG INSTALL_DIR="/root"
-# ENV NIBIRU_MONIKER="your_name"
-# ENV NIBIRU_CHAIN="nibiru-testnet-2"
-# ENV NIBIRU_WALLET="your_name"
+ENV NIBIRU_MONIKER="your_name"
+ENV NIBIRU_CHAIN="nibiru-testnet-2"
+ENV NIBIRU_WALLET="your_name"
 
 
 WORKDIR /root
