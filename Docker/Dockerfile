@@ -31,7 +31,6 @@ ENV NIBIRU_MONIKER=$NIBIRU_MONIKER_ARG
 ENV NIBIRU_CHAIN=$NIBIRU_CHAIN_ARG
 ENV NIBIRU_WALLET=$NIBIRU_WALLET_ARG
 
-
 WORKDIR /root
 
 RUN wget  $ARTIFACT_LINK  && tar -zxvf $ARTIFACT_BIN --directory $INSTALL_DIR && rm $ARTIFACT_BIN
@@ -50,9 +49,6 @@ ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-
 ENTRYPOINT ["/tini", "--"]
-
-# ENTRYPOINT ["bash"]
 
 CMD []
