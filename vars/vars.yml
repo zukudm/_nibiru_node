@@ -6,6 +6,7 @@ NIBIRU_WALLET: "Vasia"
 NIBIRU_CHAIN: "nibiru-testnet-2"
 password4key: "mypassword"
 ask_recovery: "no"
+command: nibid
 
 # status jq '.result."sync_info"."catching_up"'
 # curl localhost:26657/status | jq '.result."sync_info"."catching_up"'
