@@ -4,6 +4,11 @@ host: localhost
 NIBIRU_MONIKER: "Vasia"
 NIBIRU_WALLET: "Vasia"
 NIBIRU_CHAIN: "nibiru-testnet-2"
+password4key: "mypassword"
+ask_recovery: "no"
+
+# status jq '.result."sync_info"."catching_up"'
+# curl localhost:26657/status | jq '.result."sync_info"."catching_up"'
 
 container_name: nibiru-node
 volume_name: nibiru_volume
@@ -27,8 +32,10 @@ env_file: pathfinder-var.env
 label_name: org.opencontainers.image.title
 label_value: pathfinder
 
-cpus: 1
+cpus: 2
 cpu_shares: 1024
+memory: 4000m
+memory_reservation: 3000m
 
 
 

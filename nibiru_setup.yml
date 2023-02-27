@@ -83,18 +83,14 @@
         pull: false
         detach: yes
         restart_policy: unless-stopped
-        # env: 
-        #   NIBIRU_MONIKER: "{{ NIBIRU_MONIKER }}"
-        #   NIBIRU_WALLET: "{{ NIBIRU_WALLET }}"
-        #   NIBIRU_CHAIN: "{{ NIBIRU_CHAIN }}"
         # networks: 
         #   - name: "{{ network_name }}"
         # volumes: 
         #   - "{{ volume_name }}:{{ container_mount_point }}"
-        # cpus: "{{ cpus }}"
-        # cpu_shares: "{{ cpu_shares }}"
-        # memory: "{{ memory }}"
-        # memory_reservation: "{{ memory_reservation }}"   
+        cpus: "{{ cpus }}"
+        cpu_shares: "{{ cpu_shares }}"
+        memory: "{{ memory }}"
+        memory_reservation: "{{ memory_reservation }}"   
         command: ["nibid", "start"]
   
   

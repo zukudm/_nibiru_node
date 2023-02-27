@@ -1,0 +1,97 @@
+- name: Run nibiru wallet setup
+  vars_files: 
+    - vars/vars.yml
+    
+  hosts: "{{ host }}"
+  gather_facts: no
+  become: yes
+
+  pre_tasks:
+    - pause:
+        prompt: "Input your recovery mnemonic"
+        echo: no
+      when: ask_recovery != "no" 
+      register: recovery_mnemonic
+
+
+  
+  tasks:
+ 
+      
+    - name: Set recovery mnemonic
+      set_fact: recovery="{{ recovery_mnemonic.user_input }}"
+      when: recovery_mnemonic.user_input is defined
+
+
+
+    # - name: Get sync status inside container
+    #   community.docker.docker_container_exec: 
+    #     container: "{{ container_name }}-{{ version }}"
+    #     command: sh -c "curl http://localhost:26657/status | jq .result.sync_info.catching_up"
+    #   register: sync_out
+
+
+    # - name: Validate whether the node synced
+    #   assert:
+    #     that: 
+    #       - sync_out.stdout == "false"
+    #     fail_msg: "The node is not synced!!!! Please wait for a while"
+
+    - name: Print if recovery is enabled
+      ansible.builtin.debug:
+        msg: " printf '%s\n%s\n' {{ recovery }} {{ password4key  }} | nibid keys add {{ keyname }} --recover"
+      when: recovery is defined
+
+    - name: Run a new key generation inside container
+      community.docker.docker_container_exec: 
+        container: "{{ container_name }}"
+        command: sh -c " printf '%s\n%s\n' {{ password4key }} {{ password4key }} | nibid keys add {{ keyname }}"
+      register: out
+      when: recovery is not defined
+
+  
+
+    - name: Run recovery key generation inside container
+      community.docker.docker_container_exec: 
+        container: "{{ container_name }}"
+        command: sh -c "printf '%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s \n%s\n %s\n' {{ recovery }} {{ password4key }} {{ password4key }} | nolusd keys add {{ keyname }} --recover"
+      register: out_recovery
+      when: recovery is defined
+
+    - name: Print all information about new key
+      block:
+        - name: Print all details about key
+          ansible.builtin.debug:
+            var: out.stdout
+
+        - name: Print recovery information about key (mnemonic)
+          ansible.builtin.debug:
+            var: out.stderr_lines
+
+      when: recovery is not  defined
+    
+   
+    - name: Print all details about recover key
+      ansible.builtin.debug:
+        var: out_recovery.stdout
+      when: recovery is defined
+
+   
+
+      
+          
+    
+
+
+      
+
+    
+      
+
+
+
+
+        
+
+
+      
