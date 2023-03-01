@@ -4,14 +4,14 @@
         force: true
         url: "{{ nibiru_geneis_file }}"
         dest: /dev/null
-
-    # ignore_errors: true
+    register: results
+    ignore_errors: true
 
   - name: Stop in case docker not exists
     assert: 
       that:
-        - docker_version.rc == 0
-      fail_msg: "docker is not installed!"  
+        - result|failed
+      fail_msg: "The resource {{ nibiru_geneis_file }} is not available!"  
 
-
+  
   
