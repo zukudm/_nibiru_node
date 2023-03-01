@@ -1,0 +1,25 @@
+      - name: Remove old container if exists
+        community.docker.docker_container:
+          name: "{{ container_name }}"
+          state: absent
+
+      # - name: Remove an old volume if exists
+      #   community.docker.docker_volume:
+      #     name: "{{ volume_name }}"
+      #     state: absent
+
+      # - name: Remove custom image 
+      #   community.docker.docker_image:
+      #     state: absent
+      #     name: "{{ image_name}}"
+      #     tag: "{{ image_tag }}"
+
+      - name: Prune everything
+        community.docker.docker_prune:
+          containers: true
+          images: true
+          images_filters:
+            dangling: false
+          networks: true
+          volumes: true
+          builder_cache: true

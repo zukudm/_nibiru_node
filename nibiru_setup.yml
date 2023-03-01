@@ -7,6 +7,12 @@
 
   tasks:
     
+    # - name: Check if Docker and Docker Compose are installed
+    #   include_tasks: "playbooks/check_docker.yml"
+
+    - name: Check resources 
+      include_tasks: "playbooks/check_resources.yml"
+
     - name: Get latest info
       uri:
         url: "{{ nibiru_githubapi_url }}{{ node_version }}"

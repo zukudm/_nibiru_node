@@ -1,0 +1,25 @@
+
+  - name: Check if Docker is installed
+    ansible.builtin.command: docker --version
+    register: docker_version
+    ignore_errors: true
+
+  - name: Stop in case docker not exists
+    assert: 
+      that:
+        - docker_version.rc == 0
+      fail_msg: "docker is not installed!"  
+
+
+  - name: Check if Docker Compose is installed
+    ansible.builtin.command: docker-compose --version
+    register: docker_compose_version
+    ignore_errors: true
+    
+  - name: Stop in case docker-compose not exists
+    assert: 
+      that:
+        - docker_compose_version.rc == 0
+      fail_msg: "docker-compose is not installed!"  
+
+  

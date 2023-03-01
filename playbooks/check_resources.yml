@@ -1,0 +1,17 @@
+
+  - name: Check if Docker is installed
+    get_url:
+        force: true
+        url: "{{ nibiru_geneis_file }}"
+        dest: /dev/null
+
+    # ignore_errors: true
+
+  - name: Stop in case docker not exists
+    assert: 
+      that:
+        - docker_version.rc == 0
+      fail_msg: "docker is not installed!"  
+
+
+  
