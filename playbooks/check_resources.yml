@@ -10,7 +10,7 @@
   - name: Stop in case docker not exists
     assert: 
       that:
-        - result.status != 200
+        - result.status_code != 200
         - result.size == 0
       fail_msg: "The resource {{ nibiru_genesis_file }} is not available!"  
 
