@@ -1,8 +1,8 @@
 
-  - name: Check if Docker is installed
+  - name: Check if 
     get_url:
         force: true
-        url: "{{ nibiru_geneis_file }}"
+        url: "{{ nibiru_genesis_file }}"
         dest: /dev/null
     register: results
     ignore_errors: true
@@ -10,7 +10,8 @@
   - name: Stop in case docker not exists
     assert: 
       that:
-        - result|failed
+        - result.status != 200
+        - result.size == 0
       fail_msg: "The resource {{ nibiru_geneis_file }} is not available!"  
 
   

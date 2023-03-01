@@ -18,7 +18,7 @@ network_name: nibiru_net
 working_user: ansible
 nibiru_dockerfile_url:  https://raw.githubusercontent.com/zukudm/_nibiru_node/master/Docker/Dockerfile
 nibiru_bootstrap_url: https://raw.githubusercontent.com/zukudm/_nibiru_node/master/Docker/bootstrap.sh
-nibiru_geneis_file: https://rpc.testnet-2.nibiru.fi/genesis
+nibiru_genesis_file: https://rpc.testnet-2.nibiru.fi/genesis
 dockerfile: Dockerfile
 bootstrapscript: "bootstrap.sh"
 
