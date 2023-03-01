@@ -4,7 +4,7 @@
         force: true
         url: "{{ nibiru_genesis_file }}"
         dest: /dev/null
-    register: results
+    register: result
     ignore_errors: true
 
   - name: Stop in case docker not exists
