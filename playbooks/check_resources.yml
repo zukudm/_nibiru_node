@@ -7,7 +7,7 @@
     register: result
     ignore_errors: true
 
-  - name: Stop in case genesis configuration file now available
+  - name: Stop in case genesis configuration file not available
     assert: 
       that:
         - not result.failed
