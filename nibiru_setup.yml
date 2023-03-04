@@ -78,6 +78,11 @@
             NIBIRU_MONIKER_ARG: "{{ NIBIRU_MONIKER }}"
             NIBIRU_WALLET_ARG: "{{ NIBIRU_WALLET }}"
             NIBIRU_CHAIN_ARG: "{{ NIBIRU_CHAIN }}"
+            NIBIRU_GENESIS_FILE_ARG: "{{ nibiru_genesis_file }}"
+            NIBIRU_SEEDS_FILE_ARG: "{{ nibiru_seeds_file }}"
+            NIBIRU_RPC_SERVERS_FILE_ARG: "{{ nibiru_rpc_servers_file }}"
+            NIBIRU_TRUST_HEIGHT_FILE_ARG: "{{ nibiru_trust_height_file }}"
+            NIBIRU_TRUST_HASH_FILE_ARG: "{{ nibiru_trust_hash }}"
         source: build
 
     - name: Start the container with Nibiru
