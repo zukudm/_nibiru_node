@@ -7,11 +7,6 @@
   
   tasks:
 
-   
-    - name: Remove Git directory
-      ansible.builtin.file:
-        path: "{{ git_dst }}"
-        state: absent
 
     - name: Remove containers and all not used container stuff
       include_tasks: "playbooks/clean.yml"
