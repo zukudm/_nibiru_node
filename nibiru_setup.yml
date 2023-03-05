@@ -2,7 +2,7 @@
   vars_files: 
     - vars/vars.yml
   hosts: "{{ host }}"
-  gather_facts: no
+  gather_facts: yes
   become: yes    
 
   tasks:
