@@ -85,6 +85,11 @@
             NIBIRU_TRUST_HASH_FILE_ARG: "{{ nibiru_trust_hash }}"
         source: build
 
+    - name: Create a docker network
+      docker_network:
+        name: "{{ network_name }}"
+
+
     - name: Start the container with Nibiru
       community.docker.docker_container:
         name: "{{ container_name }}"
@@ -94,8 +99,8 @@
         pull: false
         detach: yes
         restart_policy: unless-stopped
-        # networks: 
-        #   - name: "{{ network_name }}"
+        networks: 
+          - name: "{{ network_name }}"
         # volumes: 
         #   - "{{ volume_name }}:{{ container_mount_point }}"
         cpus: "{{ cpus }}"
