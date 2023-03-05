@@ -11,7 +11,7 @@
     assert: 
       that:
         - not result.failed
-        - result.size == 0
+        - result.size != 0
       fail_msg: "The resource {{ nibiru_genesis_file }} is not available!"  
 
   
