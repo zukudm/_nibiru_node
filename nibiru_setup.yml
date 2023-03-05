@@ -13,16 +13,20 @@
     - name: Check resources 
       include_tasks: "playbooks/check_resources.yml"
 
-    - name: Get latest info
-      uri:
-        url: "{{ nibiru_githubapi_url }}{{ node_version }}"
-        return_content: true
-      register: nibiru_info
+    - block: 
 
-    - name: Get version 
-      set_fact: version="{{ nibiru_info.json.tag_name }}"
+      - name: Get latest info
+        uri:
+          url: "{{ nibiru_githubapi_url }}{{ node_version }}"
+          return_content: true
+        register: nibiru_info
 
-    - name: print It
+      - name: Get version 
+        set_fact: version="{{ nibiru_info.json.tag_name }}"
+
+      when: node_version == 'latest'
+
+    - name: Print version to install
       debug:  
         msg: "{{ version }}"
 
