@@ -18,13 +18,15 @@ network_name: nibiru_net
 working_user: ansible
 nibiru_dockerfile_url:  https://raw.githubusercontent.com/zukudm/_nibiru_node/master/Docker/Dockerfile
 nibiru_bootstrap_url: https://raw.githubusercontent.com/zukudm/_nibiru_node/master/Docker/bootstrap.sh
+dockerfile: Dockerfile
+docker_files_local_path: .nibiru_files/
 
 nibiru_genesis_file: "https://networks.itn.nibiru.fi/{{ NIBIRU_CHAIN }}/genesis"
 nibiru_seeds_file: "https://networks.itn.nibiru.fi/{{ NIBIRU_CHAIN }}/seeds"
 nibiru_rpc_servers_file: "https://networks.itn.nibiru.fi/{{ NIBIRU_CHAIN }}/rpc_servers"
 nibiru_trust_height_file: "https://networks.itn.nibiru.fi/{{ NIBIRU_CHAIN }}/trust_height"
 nibiru_trust_hash: "https://networks.itn.nibiru.fi/{{ NIBIRU_CHAIN }}/trust_hash"
-dockerfile: Dockerfile
+
 bootstrapscript: "bootstrap.sh"
 
 

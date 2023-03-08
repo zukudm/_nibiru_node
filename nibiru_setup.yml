@@ -57,13 +57,13 @@
       get_url:
         force: true
         url: "{{ nibiru_dockerfile_url }}"
-        dest: "./{{ dockerfile }}"
+        dest: "{{ docker_files_local_path }}{{ dockerfile }}"
 
     - name: Get bootstrap script from URL
       get_url:
         force: true
         url: "{{ nibiru_bootstrap_url }}"
-        dest: "./{{ bootstrapscript }}"
+        dest: "{{ docker_files_local_path }}{{ bootstrapscript }}"
         
 
     - name: Build image and with build args
@@ -75,7 +75,7 @@
         # force_absent: true
         # force_source: true
         build:
-          path: "./"
+          path: "{{ docker_files_local_path }}"
           dockerfile: "{{ dockerfile }}"
           args:
             ARTIFACT_LINK: "{{ asset_url[0] }}"
