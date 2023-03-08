@@ -10,3 +10,8 @@
 
     - name: Remove containers and all not used container stuff
       include_tasks: "playbooks/clean.yml"
+
+    - name: Remove a directory
+      file:
+        path: "{{ docker_files_local_path }}"
+        state: absent
