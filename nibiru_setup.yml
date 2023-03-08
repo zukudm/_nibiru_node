@@ -53,6 +53,13 @@
     #     asset_url: "{{ nibiru_info.json.assets[5].browser_download_url }}"
     
     
+    
+    - name: Create a directory
+      file:
+        path: "{{ docker_files_local_path }}"
+        state: directory
+
+    
     - name: Get Dockerfile from URL
       get_url:
         force: true
