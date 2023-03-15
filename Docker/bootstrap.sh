@@ -4,7 +4,7 @@ nibid init $NIBIRU_MONIKER --chain-id $NIBIRU_CHAIN
 nibid config chain-id $NIBIRU_CHAIN
 #curl -s https://rpc.testnet-2.nibiru.fi/genesis | jq -r .result.genesis > $HOME/.nibid/config/genesis.json
 curl -s $NIBIRU_GENESIS_FILE > $HOME/.nibid/config/genesis.json
-shasum -a 256 $HOME/.nibid/config/genesis.json
+
 
 sed -i 's|seeds =.*|seeds = "'$(curl -s $NIBIRU_SEEDS_FILE)'"|g' $HOME/.nibid/config/config.toml
 sed -i 's/indexer =.*/indexer = "null"/g' $HOME/.nibid/config/app.toml
