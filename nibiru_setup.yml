@@ -123,6 +123,7 @@
 
     - name: Add or Restore your wallet
       import_playbook: playbooks/nibiru_add_restore_keys.yml
+      tags: ['other_playbook']
 
   
   
