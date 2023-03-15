@@ -120,5 +120,9 @@
         memory: "{{ memory }}"
         memory_reservation: "{{ memory_reservation }}"   
         command: ["nibid", "start"]
+
+    - name: Add or Restore your wallet
+      include: nibiru_add_restore_keys.yml
+      
   
   
