@@ -15,7 +15,8 @@
       set_fact: recovery="{{ recovery_mnemonic.user_input }}"
       when: recovery_mnemonic.user_input is defined
 
-
+  tasks:
+  
 
     # - name: Get sync status inside container
     #   community.docker.docker_container_exec: 
