@@ -14,6 +14,7 @@ RUN  apt-get update \
   && apt-get install -y wget \
   && apt-get install -y curl \
   && apt-get install -y jq \
+  && apt-get -y install lz4 \
   && apt-get install -y ca-certificates \
   && rm -rf /var/lib/apt/lists/*
 

@@ -1,10 +1,6 @@
 - name: Run nibiru wallet setup
-  vars_files: 
-    - vars/vars.yml
-    
-  hosts: "{{ host }}"
-  gather_facts: no
-  become: yes
+  
+  
 
   pre_tasks:
     - pause:
@@ -13,29 +9,13 @@
       when: ask_recovery != "no" 
       register: recovery_mnemonic
 
-
-  
-  tasks:
  
       
     - name: Set recovery mnemonic
       set_fact: recovery="{{ recovery_mnemonic.user_input }}"
       when: recovery_mnemonic.user_input is defined
 
-
-
-    # - name: Get sync status inside container
-    #   community.docker.docker_container_exec: 
-    #     container: "{{ container_name }}-{{ version }}"
-    #     command: sh -c "curl http://localhost:26657/status | jq .result.sync_info.catching_up"
-    #   register: sync_out
-
-
-    # - name: Validate whether the node synced
-    #   assert:
-    #     that: 
-    #       - sync_out.stdout == "false"
-    #     fail_msg: "The node is not synced!!!! Please wait for a while"
+  tasks:
 
     - name: Print if recovery is enabled
       ansible.builtin.debug:
